@@ -1,12 +1,7 @@
 import "./App.css";
 import { Board } from "./components/Board";
-// import { useState } from "react";
-// import { Flex } from "@chakra-ui/react";
-// import { Counter } from "./components/Counter";
 
 function App() {
-  // const [count, setCount] = useState(0);
-
   return (
     <div>
       {/* <>
@@ -23,9 +18,7 @@ function App() {
         
         </div>
       </> */}
-      {/* <Flex direction="column"> */}
       <Board />
-      {/* </Flex> */}
     </div>
   );
 }
