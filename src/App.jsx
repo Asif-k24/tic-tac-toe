@@ -1,24 +1,32 @@
 import "./App.css";
-import { useState } from "react";
-import { Counter } from "./components/Counter";
+import { Board } from "./components/Board";
+// import { useState } from "react";
+// import { Flex } from "@chakra-ui/react";
+// import { Counter } from "./components/Counter";
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   return (
-    <>
-      <div className="card">
+    <div>
+      {/* <>
+        <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        count is {count}
         </button>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+        Edit <code>src/App.jsx</code> and save to test HMR
         </p>
-      </div>
-      <div>
+        </div>
+        <div>
         <Counter />
-      </div>
-    </>
+        
+        </div>
+      </> */}
+      {/* <Flex direction="column"> */}
+      <Board />
+      {/* </Flex> */}
+    </div>
   );
 }
 

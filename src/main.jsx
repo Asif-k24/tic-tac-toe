@@ -1,11 +1,19 @@
+import "./index.css";
+import App from "./App";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.jsx";
-import { ChakraProvider } from "@chakra-ui/react";
+// import { ChakraProvider } from "@chakra-ui/react";
 
-createRoot(document.getElementById("root")).render(
-    <StrictMode>
+const root = document.getElementById("root");
+
+if (!root) {
+  throw new Error("Root element not found");
+}
+
+createRoot(root).render(
+  // <ChakraProvider>
+    // <StrictMode>
       <App />
-    </StrictMode>
+    /* </StrictMode> */
+  /* </ChakraProvider> */
 );
