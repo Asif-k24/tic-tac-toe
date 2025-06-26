@@ -1,5 +1,7 @@
 import "./App.css";
+import { Game } from "./components/Game";
 import { Board } from "./components/Board";
+import { prac_file as Prac } from "./components/prac_file";
 
 function App() {
   return (
@@ -18,7 +20,9 @@ function App() {
         
         </div>
       </> */}
-      <Board />
+      {/* <Board /> */}
+      {/* <Game /> */}
+      <Prac />
     </div>
   );
 }

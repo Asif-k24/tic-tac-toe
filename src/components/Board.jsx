@@ -8,8 +8,9 @@ const Square = ({ value, onSquareClick }) => {
   );
 };
 
-export const Board = () => {
-  const [xIsNext, setXIsNext] = useState(true);
+// export const Board = ({ xIsNext, squares, onPlay }) => {
+export const Board = ({ xIsNext }) => {
+  // const [xIsNext, setXIsNext] = useState(true);
   // const [squares, setSquares] = useState(Array(9).fill(null));
   const _squares = ["", "", "", "", "", "", "", "", ""];
   const [squares, setSquares] = useState(_squares);

@@ -33,6 +33,10 @@
   }
 }
 
+.text-red-500 {
+  color: rgb(255, 71, 71);
+}
+
 .card {
   padding: 2em;
 }
