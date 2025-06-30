@@ -1,10 +1,14 @@
 import "../App.css";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-type FormFields = {
-  email: string;
-  password: string;
-};
+const schema = z.object({
+  email: z.string().email(),
+  password: z.string().min(8),
+});
+
+type FormFields = z.infer<typeof schema>;
 
 export const prac_file = () => {
   const {
@@ -12,51 +16,33 @@ export const prac_file = () => {
     handleSubmit,
     setError,
     formState: { errors, isSubmitting },
-  } = useForm<FormFields>();
+  } = useForm<FormFields>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    resolver: zodResolver(schema),
+  });
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       throw new Error();
-      console.log(data);
     } catch (error) {
       setError("email", {
         message: "This email is already taken",
       });
     }
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(data);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input
-        {...register("email", {
-          required: "Email is required",
-          validate: (value) => {
-            if (!value.includes("@")) {
-              return "Email must include @";
-            }
-            return true;
-          },
-        })}
-        type="text"
-        placeholder="Email"
-      />
+      <input {...register("email")} type="text" placeholder="Email" />
       {errors.email && (
         <div className="text-red-500">{errors.email.message}</div>
       )}
-      <input
-        {...register("password", {
-          required: "Password is required",
-          minLength: {
-            value: 8,
-            message: "Password must have at least 8 characters",
-          },
-        })}
-        type="password"
-        placeholder="Password"
-      />
+      <input {...register("password")} type="password" placeholder="Password" />
       {errors.password && (
         <div className="text-red-500">{errors.password.message}</div>
       )}
